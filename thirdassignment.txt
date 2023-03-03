@@ -1,0 +1,230 @@
+
+
+1. Write a program containing a possible exception. Use a try block to throw it and a catch block
+to handle it promptly.
+
+import java.util.Scanner;
+import java.util.*;
+public class aa extends Exception {
+	public static void main(String[]args){
+		
+				Scanner s = new Scanner(System.in);
+				System.out.println("enter the no. :");
+				int a = s.nextInt();
+				System.out.println("enter the div :");
+				int b = s.nextInt();
+				
+				
+			try {
+					System.out.println(a/b);
+				}
+			catch(ArithmeticException e){
+					
+						System.out.println("as  div is 0 it cannot be processed");
+			}
+				
+				System.out.println("handelled");
+				
+	}
+}
+
+
+output -
+
+enter the no. :
+345
+enter the div :
+0
+as  div is 0 it cannot be processed
+handelled
+
+
+
+-------------------------------------------------------------------------------------------------------------------
+
+
+2. Write a program that illustrates the application of multiple catch statements.
+
+import java.util.Scanner;
+import java.util.*;
+public class aa  {
+	
+		public static void main(String[]args) {
+			String s =null;
+			int arr[] = {0,2,3,4,5,4,6};
+
+	    try {
+	    	System.out.println(s.charAt(0));
+	    	for(int i = 0 ; i <= arr.length ;i++) {
+	   		System.out.print(arr[i]+" ");
+	    		    		
+	   	}
+	    
+	    }
+	    catch(NullPointerException e) {
+	    	System.out.println("string i null");
+	    	throw e;
+
+	    
+	    }catch(ArrayIndexOutOfBoundsException f) {
+	    	System.out.println( " index out of length ");
+	    	
+	    }
+
+	}
+
+	}
+
+
+output - 
+
+string i null
+Exception in thread "main" java.lang.NullPointerException: Cannot invoke "String.charAt(int)" because "s" is null
+	at abhi.aa.main(aa.java:11)
+
+
+--------------------------------------------------------------------------------------------
+
+
+
+3. Write a program that demonstrates how certain exception types are not allowed to be thrown.
+
+
+import java.util.Scanner;
+import java.util.*;
+public class aa  {
+	public static void main(String[]args){
+		
+				Scanner s = new Scanner(System.in);
+				System.out.println("enter the no. :");
+				int a = s.nextInt();
+				System.out.println("enter the div :");
+				int b = s.nextInt();
+				
+				
+			try {
+					System.out.println(a/b);:
+				}
+			catch(ArithmeticException e){
+					
+						System.out.println("as  div is 0 it cannot be processed");
+			}
+				
+				System.out.println("handelled");
+				
+	}
+}
+
+
+output - in output it will show compile time error .
+
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+	Syntax error on token ":", invalid EmptyStatement
+
+	at abhi.aa.main(aa.java:15) 
+
+
+-----------------------------------------------------------------------------------------------------
+4. Write a program to demonstrate the concept of re-throwing an exception.
+
+
+import java.util.Scanner;
+public class firstlec {
+	public static void divide() {
+		Scanner sc = new Scanner(System.in);
+    try {
+    	int x = sc.nextInt();
+    	int y = sc.nextInt();
+    	System.out.println(x/y);
+    		    		
+   	}
+    
+    
+    catch(ArithmeticException e) {
+    	System.out.println(" x can't be divided by y as it is zero  in function divide");
+    	throw e;
+
+    
+    }
+    
+    }
+public static void main(String[]args) {
+	try {
+		divide();
+	}catch(ArithmeticException j) {
+		System.out.println("exception e is handelled in main");
+		System.out.println(j);
+                  throw j;
+	}
+}
+	
+}
+
+
+output -
+
+30
+0
+ x can't be divided by y as it is zero  in function divide
+exception e is handelled in main
+java.lang.ArithmeticException: / by zero
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+	at abhi.firstlec.divide(firstlec.java:10)
+	at abhi.firstlec.main(firstlec.java:25)
+
+
+
+
+-------------------------------------------------------------------------------------------------
+
+5. You will be given two integers and as input, you have to compute x/y. If x and y are not 32 bit
+signed integers or if y is zero, exception will occur and you have to report it. Read sample
+Input/Output to know what to report in case of exceptions. 
+
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+public class firstlec {
+	public static void main(String[]args) {
+		Scanner sc = new Scanner(System.in);
+    try {
+    	int x = sc.nextInt();
+    	int y = sc.nextInt();
+    	System.out.println(x/y);
+    		    		
+   	}
+    
+    
+    catch(ArithmeticException e) {
+    	System.out.println(" x can't be divided by y as it is zero ");
+
+    
+    }
+    catch(InputMismatchException e) {
+    	System.out.println(e);
+    }
+
+}
+
+}
+
+
+
+output -
+
+10
+hello
+java.util.InputMismatchException
+
+
+
+
+
+
+
+
+
+
+
+
+
